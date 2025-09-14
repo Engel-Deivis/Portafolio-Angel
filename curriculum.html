@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum | Ángel David Concepción Serrano</title>
+    <link rel="stylesheet" href="./css/curriculum.css">
+</head>
+
+<body>
+    <div class="ventana-cv">
+        <div class="ventana-cv__contenido">
+            <h2 class="ventana-cv__titulo">Currículum Vitae</h2>
+            <div class="ventana-cv__marco">
+                <iframe src="./assets/documentos/currículum Ángel David Concepción Serrano.pdf" loading="lazy"
+                    class="ventana-cv__pdf"></iframe>
+            </div>
+
+            <div class="ventana-cv__acciones">
+                <a href="./assets/documentos/currículum Ángel David Concepción Serrano.pdf" download
+                    class="ventana-cv__boton descargar">
+                    Descargar CV
+                </a>
+                <a href="index.html" class="ventana-cv__boton regresar">
+                    ← Volver
+                </a>
+            </div>
+
+            <form action="https://formspree.io/f/mvgbnzwe" method="POST" class="ventana-cv__formulario">
+                <div class="campo">
+                    <label for="nombre">Nombre o Empresa</label>
+                    <input type="text" name="name" id="nombre" required />
+                </div>
+
+                <div class="campo">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" name="email" id="correo" required />
+                </div>
+
+                <div class="campo">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea name="message" id="mensaje" required></textarea>
+                </div>
+
+                <div class="ventana-cv__contacto">
+                    <button type="submit" class="ventana-cv__boton correo">
+                        <img src="./assets/iconos/gmail.png" alt="Gmail" loading="lazy" />
+                        Enviar por correo
+                    </button>
+
+                    <a href="https://wa.me/18297857041?text=Hola,%20buenos%20días.%20Estoy%20interesado%20en%20contactarte"
+                        target="_blank" class="ventana-cv__boton whatsapp">
+                        <img src="./assets/iconos/whatsapp.png" alt="WhatsApp" loading="lazy" />
+                        Contáctame vía WhatsApp
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

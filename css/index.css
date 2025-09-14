@@ -1,0 +1,1312 @@
+/* --------------- Importando Fuentes --------------- */
+@import url(./fuentes.css);
+
+/* --------------- Aplicando valor por defecto a la pagina --------------- */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* --------------- Creando Variables --------------- */
+:root {
+    --color-pagina: #1A1B29;
+    --color-texto: white;
+    --fuente-parrafos: Jost;
+    --fuente-titulos: JulioSans;
+}
+
+/* --------------- Aplicando estilos a la pagina --------------- */
+body {
+    background-color: var(--color-pagina);
+    color: white
+}
+
+/* --------------- Aplicando estilos al menu de navegacion --------------- */
+header nav {
+    display: none;
+    box-shadow: var(--boxshadow-card);
+}
+
+
+/* --------------- Aplicando estilos al header --------------- */
+header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem;
+}
+
+header a {
+    text-decoration: none;
+    font-family: var(--fuente-titulos);
+    font-weight: lighter;
+    color: var(--color-texto);
+}
+
+
+/* --------------- Aplicando estilos al logo --------------- */
+header .contenedor-logo img {
+    filter: drop-shadow(0px 5px 25px rgba(255, 255, 255, 0.5));
+    height: 2.6rem;
+    width: 2.6rem;
+}
+
+/* --------------- Aplicando estilos al icono de menu --------------- */
+header .menu-togle {
+    cursor: pointer;
+}
+
+/* --------------- Aplicando estilos al contenedor de la seccion principal --------------- */
+.contenedor-hero {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: .7rem;
+}
+
+/* --------------- Aplicando estilos a la imagen principal --------------- */
+.contenedor-hero img {
+    filter: drop-shadow(0px 5px 25px rgba(255, 255, 255, 0.5));
+    height: auto;
+    margin-bottom: 2rem;
+    width: 40%;
+}
+
+/* --------------- Aplicando estilos al titulo h1 del Hero --------------- */
+.contenedor-hero .hero h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 1rem;
+    font-weight: lighter;
+    margin-bottom: .5rem;
+    width: 100%;
+}
+
+/* --------------- Aplicando estilos al titulo h2 del Hero --------------- */
+.contenedor-hero .hero h2 {
+    font-family: var(--fuente-titulos);
+    font-size: .6rem;
+    font-weight: lighter;
+    margin-bottom: .4rem;
+}
+
+/* --------------- Aplicando estilos al parrafo del Hero --------------- */
+.contenedor-hero .hero p {
+    font-family: var(--fuente-parrafos);
+    font-size: .6rem;
+    width: 100%;
+}
+
+/* --------------- Aplicando estilos al contenedor de la seccion 'Sobre Mi' --------------- */
+.contenedor-sobre-mi {
+    margin-bottom: 3.5rem;
+}
+
+/* --------------- Aplicando estilos al titulo h2 de 'Sobre Mi' --------------- */
+.contenedor-sobre-mi .sobre-mi h2 {
+    font-family: var(--fuente-titulos);
+    font-weight: lighter;
+    margin-bottom: .7rem;
+    margin-left: .7rem;
+}
+
+/* --------------- Aplicando estilos al parrafo de 'Sobre Mi' --------------- */
+.contenedor-sobre-mi .sobre-mi p {
+    font-family: var(--fuente-parrafos);
+    font-size: .79rem;
+    margin-left: .7rem;
+    width: 90%;
+}
+
+/* --------------- Aplicando estilos al contenedor de Proyectos Destacados --------------- */
+.contenedor-proyecto-destacados {
+    margin-left: .7rem;
+    margin-bottom: 5rem;
+}
+
+/* --------------- Aplicando estilos al titulo h2 de Proyectos Destacados --------------- */
+.contenedor-proyecto-destacados h2 {
+    font-family: var(--fuente-titulos);
+    font-weight: lighter;
+    margin-bottom: 1rem;
+}
+
+/* --------------- Aplicando estilos a la imagen dentro de la tarjeta de Proyectos Destacados --------------- */
+.contenedor-proyecto-destacados .proyectos .card img {
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.5);
+    height: 20rem;
+    width: 20rem;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* --------------- Aplicando estilos a la tarjeta de Proyectos Destacados --------------- */
+.contenedor-proyecto-destacados .proyectos .card {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    width: 20rem;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------- Aplicando estilos al contenedor de todos los proyectos --------------- */
+.contenedor-proyecto-destacados .proyectos {
+    display: flex;
+    gap: 2rem;
+    overflow: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+/* --------------- Aplicando estilos al contenedor de contenido de la tarjeta de Proyectos Destacados --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* --------------- Aplicando estilos al titulo (figcaption) dentro de la tarjeta de Proyectos Destacados --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card figcaption {
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    font-weight: lighter;
+    margin-bottom: .7rem;
+    margin-top: 2.5em;
+}
+
+/* --------------- Aplicando estilos al contenedor de acciones (boton) dentro de la tarjeta de Proyectos Destacados --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
+    align-items: center;
+    display: flex;
+}
+
+/* --------------- Aplicando estilos al boton dentro del contenedor de acciones de la tarjeta --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion button {
+    margin-bottom: 1.4rem;
+    width: 93%;
+}
+
+/* --------------- Aplicando estilos al parrafo dentro de la tarjeta de Proyectos Destacados --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card p {
+    font-family: var(--fuente-parrafos);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-size: .79rem;
+    width: 90%;
+}
+
+/* --------------- Aplicando estilos al boton especifico 'btn-adc' --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-adc {
+    background-color: #37b467;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    color: var(--color-texto);
+    cursor: pointer;
+    font-family: var(--fuente-parrafos);
+    padding: 5px;
+    transition: 0.3s;
+    will-change: transform;
+}
+
+/* --------------- Aplicando estilos al boton 'btn-adc' en estado hover/active --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-adc:hover:active {
+    transform: scale(.9);
+}
+
+/* --------------- Aplicando estilos al boton de The Burger House --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-burger {
+    background-color: #CC0000;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    color: var(--color-texto);
+    cursor: pointer;
+    font-family: var(--fuente-parrafos);
+    padding: 5px;
+    transition: 0.3s;
+    will-change: transform;
+}
+
+/* --------------- Aplicando estilos al boton 'btn-burger' en estado hover/active --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-burger:hover:active {
+    transform: scale(.9);
+}
+
+
+/* --------------- Aplicando estilos al boton de Warr Spa --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-warrspa {
+    background-color: #9A5833;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    color: var(--color-texto);
+    cursor: pointer;
+    font-family: var(--fuente-parrafos);
+    padding: 5px;
+    transition: 0.3s;
+    will-change: transform;
+}
+
+/* --------------- Aplicando estilos al boton 'btn-warrspa' en estado hover/active --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-warrspa:hover:active {
+    transform: scale(.9);
+}
+
+/* --------------- Aplicando estilos al boton de Roberto Flax --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-roberto {
+    background-color: #007BFF;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    color: var(--color-texto);
+    cursor: pointer;
+    font-family: var(--fuente-parrafos);
+    padding: 5px;
+    transition: 0.3s;
+    will-change: transform;
+}
+
+
+/* --------------- Aplicando estilos al boton 'btn-roberto' en estado hover/active --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-roberto:hover:active {
+    transform: scale(.9);
+}
+
+/* --------------- Aplicando estilos al boton de The Burger House Adm --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-burger-adm {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    color: black;
+    cursor: pointer;
+    font-family: var(--fuente-parrafos);
+    padding: 5px;
+    transition: 0.3s;
+    will-change: transform;
+    font-weight: bold;
+}
+
+/* --------------- Aplicando estilos al boton 'btn-burger-adm' en estado hover/active --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-burger-adm:hover:active {
+    transform: scale(.9);
+}
+
+/* --------------- Aplicando estilos al boton de dentalCronwn --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-dental {
+    background-color: #00838F;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    color: var(--color-texto);
+    cursor: pointer;
+    font-family: var(--fuente-parrafos);
+    padding: 5px;
+    transition: 0.3s;
+    will-change: transform;
+}
+
+
+/* --------------- Aplicando estilos al boton 'btn-dental' en estado hover/active --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-dental:hover:active {
+    transform: scale(.9);
+}
+
+/* --------------- Aplicando estilos al boton de My Blog --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-blog {
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    color: black;
+    cursor: pointer;
+    font-family: var(--fuente-parrafos);
+    font-weight: bold;
+    padding: 5px;
+    transition: 0.3s;
+    will-change: transform;
+}
+
+
+/* --------------- Aplicando estilos al boton 'btn-blog' en estado hover/active --------------- */
+.contenedor-proyecto-destacados .proyectos .card .contenido-card .accion .btn-blog:hover:active {
+    transform: scale(.9);
+}
+
+/* --------------- Aplicando estilos al contenedor de las habilidades --------------- */
+.contenedor-habilidades .habilidades {
+    display: flex;
+    gap: 3rem;
+    font-family: var(--fuente-titulos);
+    overflow: auto;
+    flex-wrap: nowrap;
+    /* Fuerza a todos los elementos a estar en una sola línea */
+}
+
+/* --------------- Aplicando estilos a los iconos de las habilidades --------------- */
+.contenedor-habilidades .habilidades .iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    white-space: nowrap;
+    /* Para evitar que el texto individual se rompa si la palabra es muy larga */
+    cursor: pointer;
+    object-fit: cover;
+    transition: 0.3s;
+    will-change: transform;
+    margin-bottom: 3.5rem;
+}
+
+.contenedor-habilidades .habilidades .iconos img {
+    width: 30px;
+    height: 30px;
+}
+
+/* --------------- Aplicando animacion a las habilidades --------------- */
+.contenedor-habilidades .habilidades .iconos:hover:active {
+    transform: scale(.9);
+}
+
+/* --------------- Aplicando estilos a los titulos --------------- */
+.contenedor-habilidades .habilidades .iconos figcaption {
+    margin-top: .4rem;
+}
+
+/* --------------- Aplicando estilos al titulo de Habilidades Tecnicas --------------- */
+.contenedor-habilidades h2 {
+    font-family: var(--fuente-titulos);
+    font-weight: lighter;
+    margin-left: .7rem;
+    margin-bottom: 1rem;
+}
+
+/* --------------- Aplicando estilos al titpo de Contacto --------------- */
+footer h2 {
+    font-family: var(--fuente-titulos);
+    margin-bottom: 2rem;
+    margin-left: .7rem;
+}
+
+/* --------------- Aplicando estilos al contenedor de las redes --------------- */
+footer .contenedor-redes .redes {
+    display: flex;
+    align-items: center;
+    font-family: var(--fuente-parrafos);
+    gap: 1rem;
+    margin: 1rem;
+}
+
+footer .contenedor-redes {
+    margin-bottom: 3rem;
+}
+
+/* --------------- Aplicando estilos a los iconos de las redes --------------- */
+footer .contenedor-redes .redes img {
+    object-fit: contain;
+    width: 30px;
+    height: 30px;
+}
+
+/* --------------- Aplicando estilos al contenedor de las redes --------------- */
+footer .contenedor-redes {
+    margin-left: .7rem;
+}
+
+/* --------------- Aplicando estilos a la  ubicacion --------------- */
+footer .contenedor-ubicacion .ubicacion {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: .7rem;
+    font-family: var(--fuente-parrafos);
+    /* margin-bottom: 2.1rem; */
+}
+
+footer .contenedor-ubicacion .ubicacion img {
+    width: 30px;
+    height: 30px;
+}
+
+/* --------------- Aplicando estilos  contenedor de la ubucacion --------------- */
+footer .contenedor-ubicacion {
+    border: 1px solid #fff;
+    width: 95%;
+    height: 17.5vh;
+    margin: auto;
+    border-radius: 20px;
+}
+
+/* --------------- Aplicando estilos al contenedor del boton Contactame --------------- */
+footer .contenedor-ubicacion .acciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* --------------- Aplicando estilos al boton de contactame --------------- */
+footer .contenedor-ubicacion .acciones .btn-contactame {
+    border: none;
+    background-color: #313bce;
+    color: var(--color-texto);
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    will-change: transform;
+    margin-top: auto;
+}
+
+/* --------------- Aplicando Animacion al boton de Contactame --------------- */
+footer .contenedor-ubicacion .acciones .btn-contactame:active {
+    transform: scale(.9);
+}
+
+
+/* 
+ -------------------------------------------------
+    SECCIÓN DE VENTANAS EMERGENTES 
+ -------------------------------------------------
+*/
+
+/* --------------- Formulario de contacto --------------- */
+.contenedor-contacto {
+    border: 1px solid white;
+    background-color: #2c2e4b4d;
+    box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 90vw;
+    max-width: 24rem;
+    max-height: 90vh;
+    height: auto;
+    overflow-y: auto;
+}
+
+/* --------------- Aplicando estilos al fondo --------------- */
+.fondo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100rem;
+    height: 100rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* --------------- Aplicnado estilos al formulario --------------- */
+.contenedor-contacto .contacto form {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-parrafos);
+}
+
+/* --------------- Aplicnado estilos a cada Campo --------------- */
+.contenedor-contacto .contacto form .campo {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin: .7rem;
+}
+
+/* --------------- Aplicnado estilos a los label --------------- */
+.contenedor-contacto .contacto form label {
+    padding-left: .8rem;
+}
+
+/* --------------- Aplicnado estilos a los inputs --------------- */
+.contenedor-contacto .contacto form input,
+textarea {
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: var(--color-pagina);
+    color: var(--color-texto);
+    padding: .5rem;
+    padding-left: 1rem;
+    font-family: var(--fuente-parrafos);
+    font-size: 1rem;
+    outline: none;
+    width: 90%;
+
+}
+
+/* --------------- Aplicnado animacion a los inputs --------------- */
+.contenedor-contacto .contacto form input:focus,
+textarea:focus {
+    box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.5);
+}
+
+/* --------------- Aplicnado estilos al titulo de 'Formulario de contactp' --------------- */
+.contenedor-contacto h2 {
+    text-align: center;
+    font-family: var(--fuente-titulos);
+    font-weight: lighter;
+    margin-bottom: .8rem;
+    font-size: 1.4rem;
+}
+
+/* --------------- Aplicnado estilos a los botones --------------- */
+.contenedor-contacto .contacto .contenedor-acciones button, .btn-watsapp-accion {
+    border: 1px solid white;
+    background-color: #2c2e4b;
+    color: var(--color-texto);
+    width: 90%;
+    padding: .8rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-family: var(--fuente-parrafos);
+    margin-top: 1.5rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+
+/* --------------- Aplicando estilos a los iconos de los botones --------------- */
+.contenedor-contacto .contacto .contenedor-acciones button img {
+    position: absolute;
+    left: 1rem;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.contenedor-contacto .contacto .contenedor-acciones .btn-watsapp-accion img {
+    position: absolute;
+    left: 1rem;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* --------------- Aplicnado estilos al boton de WhatsApp --------------- */
+.contenedor-contacto .contacto .contenedor-acciones .btn-watsapp-accion {
+    background-color: #1f974b;
+    border: none;
+    width: 83%;
+}
+
+/* --------------- Aplicando estilos al contenedor de la X de cerrar --------------- */
+.contenedor-contacto .contenedor-btn-cerrar {
+    display: flex;
+    justify-content: end;
+    margin: .8rem;
+    margin-bottom: 1.8rem;
+}
+
+/* --------------- Aplicnado estilos a la x de Cerrar --------------- */
+.contenedor-contacto .contenedor-btn-cerrar img {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 1.5rem;
+    height: 1.5rem;
+    will-change: transform;
+    filter: drop-shadow(0px 5px 25px rgba(255, 255, 255, 0.5));
+}
+
+/* --------------- Aplicando animacion a la x de Cerrar --------------- */
+.contenedor-contacto .contenedor-btn-cerrar img:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+
+}
+
+
+/* 
+ ------------------------------------------------------------
+    SECCION DE LA VENTANA EMERENTE DEL PROYECTO A.D.C.Suite
+ ------------------------------------------------------------
+*/
+
+/* Fondo oscuro al abrir el modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+}
+
+/* Contenido centrado con fondo personalizado */
+.contenido {
+    background-color: #1A1B29;
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.5);
+}
+
+/* Carrusel horizontal */
+.contenedor-slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1rem;
+}
+
+.slide {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+/* Botón cerrar */
+.contenedor-btn-cerrar {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+}
+
+.btn-cerrar {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+
+/* 
+ ------------------------------------------------------------
+    SECCION DE UNIDADES RESPONSIVAS
+ ------------------------------------------------------------
+*/
+
+
+/* Tablets (mínimo 768px) */
+@media (min-width: 768px) {
+    .contenedor-hero .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .contenedor-hero .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .contenedor-hero .hero p {
+        font-size: 1.1rem;
+    }
+
+    .contenedor-sobre-mi .sobre-mi h2 {
+        font-size: 1.8rem;
+    }
+
+    .contenedor-sobre-mi .sobre-mi p {
+        font-size: 1.1rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card {
+        width: 30vw;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion button {
+        width: 90%;
+    }
+
+    footer .contenedor-ubicacion {
+        height: 8rem;
+    }
+
+    .contenedor-contacto {
+        width: 90vw;
+        max-width: 40rem;
+        max-height: 90vh;
+        height: auto;
+    }
+
+    .contenedor-contacto .contacto form input,
+    textarea {
+        width: 95.5%;
+    }
+
+    .contenedor-contacto .contacto .contenedor-acciones button {
+        width: 95.5%;
+    }
+}
+
+@media (min-width: 1536px) and (max-width: 1792px) {
+
+    .contenedor-hero img {
+        width: 70vw;
+        height: auto;
+    }
+
+    .contenedor-hero .hero h1 {
+        font-size: 2.7rem;
+    }
+
+    .contenedor-hero .hero h2 {
+        font-size: 2rem;
+    }
+
+    .contenedor-hero .hero p {
+        font-size: 1.6rem;
+    }
+
+    header .contenedor-logo img {
+        width: 8vw;
+        height: auto;
+    }
+
+
+    header .enlace a {
+        font-size: 1.7rem;
+    }
+
+    header .enlace a:hover {
+        color: rgb(211, 211, 211);
+    }
+
+    .contenedor-sobre-mi .sobre-mi h2 {
+        font-size: 2.5rem;
+    }
+
+    .contenedor-sobre-mi .sobre-mi p {
+        font-size: 1.7rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card img {
+        height: 20rem;
+        width: 35rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card {
+        height: 27vh;
+    }
+
+    .contenedor-proyecto-destacados h2 {
+        font-size: 2rem;
+    }
+
+    .contenedor-proyecto-destacados {
+        padding: 1rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card figcaption {
+        font-size: 2rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card p {
+        font-size: 1.2rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .accion {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contenedor-habilidades .habilidades {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor-habilidades h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.7rem;
+    }
+
+    .contenedor-habilidades .habilidades .iconos {
+        width: 5rem;
+    }
+
+    .contenedor-habilidades .habilidades .iconos img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    footer h2 {
+        font-size: 2rem
+    }
+
+    footer .contenedor-redes .redes figcaption {
+        font-size: 1.5rem;
+    }
+
+    footer .contenedor-redes .redes img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    footer .contenedor-ubicacion .ubicacion figcaption {
+        font-size: 1.5rem;
+    }
+
+    footer .contenedor-ubicacion .ubicacion img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    footer .contenedor-ubicacion .acciones button {
+        font-size: 1.2rem;
+    }
+
+    .fondo-modal {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (min-width: 1920px) {
+    header .contenedor-logo img {
+        width: 7vw;
+        height: auto;
+    }
+
+    header .enlace a {
+        font-size: 1.4rem;
+    }
+
+    header .enlace a:hover {
+        color: rgb(170, 170, 170);
+    }
+
+    .contenedor-hero img {
+        width: 70vw;
+        /* font-size: 3rem; */
+    }
+
+    .contenedor-hero .hero h1 {
+        font-size: 5rem;
+    }
+
+    .contenedor-hero .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .contenedor-hero .hero p {
+        font-size: 1.7rem;
+        width: 95%;
+    }
+
+    .contenedor-sobre-mi .sobre-mi h2 {
+        font-size: 2.5rem;
+    }
+
+    .contenedor-sobre-mi .sobre-mi p {
+        font-size: 1.7rem;
+        width: 80%;
+        margin-bottom: 10rem;
+    }
+
+    .contenedor-proyecto-destacados h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card img {
+        width: 30vw;
+        height: 35vh;
+        object-fit: cover;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card {
+        height: 35vh;
+        border-radius: 20px;
+    }
+
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card figcaption {
+        font-size: 2.1rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card p {
+        font-size: 1.5rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
+        width: 95%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion button {
+        font-size: 1.1rem;
+    }
+
+    .contenedor-habilidades .habilidades {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor-habilidades h2 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .contenedor-habilidades .habilidades .iconos img {
+        width: 3rem;
+        height: auto;
+    }
+
+    .contenedor-habilidades .habilidades .iconos {
+        width: 5%;
+        margin-bottom: 5rem;
+    }
+
+
+    footer h2 {
+        font-size: 2rem;
+    }
+
+    footer .contenedor-redes .redes img {
+        width: 2.7rem;
+        height: auto;
+    }
+
+    footer .contenedor-redes .redes figcaption {
+        font-size: 1.3rem;
+    }
+
+    footer .contenedor-ubicacion .ubicacion img {
+        width: 2.7rem;
+        height: auto;
+    }
+
+    footer .contenedor-ubicacion .ubicacion figcaption {
+        font-size: 1.3rem;
+    }
+
+    footer .contenedor-ubicacion .acciones .btn-contactame {
+        font-size: 1.2rem;
+    }
+
+    .fondo-modal {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .contenedor-contacto {
+        width: 70rem;
+        max-width: 70rem;
+    }
+
+    .contenedor-contacto .contacto .contenedor-acciones button {
+        cursor: pointer;
+    }
+
+
+}
+
+
+@media (min-width: 2560px) {
+    header .enlace a {
+        font-size: 2.2rem;
+    }
+
+    .contenedor-hero .hero h1 {
+        font-size: 7.5rem;
+    }
+
+    .contenedor-hero .hero h2 {
+        font-size: 3.7rem;
+    }
+
+    .contenedor-hero .hero p {
+        font-size: 2.1rem;
+    }
+
+    .contenedor-hero img {
+        width: 80vw;
+    }
+
+    .contenedor-sobre-mi .sobre-mi h2 {
+        font-size: 3.5rem;
+    }
+
+    .contenedor-sobre-mi .sobre-mi p {
+        font-size: 2.1rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card figcaption {
+        font-size: 2.7rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card p {
+        font-size: 2rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion button {
+        font-size: 1.5rem;
+    }
+
+    .contenedor-habilidades h2 {
+        font-size: 2.5rem;
+    }
+
+    .contenedor-habilidades .habilidades .iconos img {
+        width: 5rem;
+        height: auto;
+    }
+
+    .contenedor-habilidades .habilidades .iconos {
+        width: 6%;
+    }
+
+    .contenedor-habilidades .habilidades .iconos figcaption {
+        font-size: 1.3rem;
+        margin-bottom: 3.5rem;
+    }
+
+    footer h2 {
+        font-size: 2.5rem;
+    }
+
+    footer .contenedor-redes .redes img {
+        width: 4rem;
+    }
+
+    footer .contenedor-redes .redes figcaption {
+        font-size: 1.7rem;
+    }
+
+    footer .contenedor-ubicacion .ubicacion img {
+        width: 3rem;
+        height: auto;
+    }
+
+    footer .contenedor-ubicacion .ubicacion figcaption {
+        font-size: 1.5rem;
+    }
+
+    footer .contenedor-ubicacion .acciones .btn-contactame {
+        font-size: 1.5rem;
+    }
+
+
+}
+
+@media (min-width: 1075px) and (max-width: 1280px) {
+    .contenedor-proyecto-destacados .proyectos .card img {
+        object-fit: cover;
+        width: 40vw;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 2500px) {
+    .contenedor-proyecto-destacados .proyectos .card img {
+        object-fit: cover;
+        width: auto;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 2500px) {
+    .contenedor-proyecto-destacados .proyectos .card {
+        max-height: 30vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .contenedor-proyecto-destacados .proyectos .card {
+        width: 29vw;
+    }
+}
+
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .contenedor-proyecto-destacados .proyectos .card {
+        height: 47vh;
+    }
+}
+
+@media (min-width: 1580px) and (max-width: 1700px) {
+    .contenedor-proyecto-destacados .proyectos .card {
+        max-height: 20rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
+        width: 90%;
+
+    }
+}
+
+@media (min-width: 1700px) and (max-width: 2000px) {
+    .contenedor-proyecto-destacados .proyectos .card {
+        max-height: 20rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
+        width: 95%;
+
+    }
+
+}
+
+@media (min-width: 1793px) and (max-width: 2000px) {
+
+    header .contenedor-logo img {
+        width: 5vw;
+        height: auto;
+    }
+
+    header .enlace a {
+        font-size: 1.5rem;
+    }
+
+    header .enlace a:hover {
+        color: #7e7e7e;
+    }
+
+    .contenedor-hero .hero h1 {
+        font-size: 5rem;
+    }
+
+    .contenedor-hero .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .contenedor-hero .hero p {
+        font-size: 1.3rem;
+    }
+
+    .contenedor-hero img {
+        width: 60vw;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
+        width: 100%;
+    }
+
+    .contenedor-proyecto-destacados h2 {
+        font-size: 2rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card figcaption {
+        font-size: 2rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card p {
+        font-size: 1.2rem;
+    }
+
+    .fondo-modal {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .contenedor-habilidades .habilidades {
+        display: flex;
+        justify-content: center;
+    }
+
+    .contenedor-habilidades h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2rem;
+    }
+
+}
+
+@media (min-width: 2278px) and (max-width: 2400px) {
+    .contenedor-proyecto-destacados .proyectos .card {
+        max-height: 25rem;
+    }
+}
+
+@media (min-width: 2500px) and (max-width: 2800px) {
+    .contenedor-proyecto-destacados .proyectos .card {
+        max-height: 30rem;
+        /* height: 40rem; */
+    }
+}
+
+
+@media (min-width: 1536px) and (max-width: 1579px) {
+    .contenedor-proyecto-destacados .proyectos .card {
+        max-height: 20rem;
+    }
+
+    .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
+        width: 93%;
+    }
+}
+
+
+
+/* Chrome, Edge y Safari */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+    /* fondo claro para resaltar el morado */
+    box-shadow: inset 0 0 5px white;
+    /* sombra blanca interna */
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #6a0dad, #9b59b6);
+    /* morado con estilo */
+    border-radius: 20px;
+    box-shadow: inset 0 0 3px white;
+    /* brillo interno blanco */
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #6a0dad #f5f5f5;
+}
