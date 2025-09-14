@@ -622,7 +622,7 @@ textarea:focus {
     background-color: #1f974b;
     border: none;
     width: 90%;
-    max-width: 500px;
+    max-width: 400px;
     margin: 1rem auto;
 }
 
