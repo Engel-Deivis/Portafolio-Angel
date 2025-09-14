@@ -589,12 +589,6 @@ textarea:focus {
     cursor: pointer;
 }
 
-.contenedor-contacto .contacto .contenedor-acciones button {
-    width: 90%;
-    max-width: 500px;
-    margin: 1rem auto;
-}
-
 
 /* --------------- Aplicando estilos a los iconos de los botones --------------- */
 .contenedor-contacto .contacto .contenedor-acciones button img {
