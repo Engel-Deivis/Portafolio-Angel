@@ -610,6 +610,31 @@ textarea:focus {
     object-fit: contain;
 }
 
+/* --------------- Aplicando estilos al contenedor de la X de cerrar --------------- */
+.contenedor-contacto .contenedor-btn-cerrar {
+    display: flex;
+    justify-content: end;
+    margin: .8rem;
+    margin-bottom: 1.8rem;
+}
+
+/* --------------- Aplicnado estilos a la x de Cerrar --------------- */
+.contenedor-contacto .contenedor-btn-cerrar img {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 1.5rem;
+    height: 1.5rem;
+    will-change: transform;
+    filter: drop-shadow(0px 5px 25px rgba(255, 255, 255, 0.5));
+}
+
+/* --------------- Aplicando animacion a la x de Cerrar --------------- */
+.contenedor-contacto .contenedor-btn-cerrar img:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+
+}
+
 
 /* 
  ------------------------------------------------------------
@@ -740,6 +765,14 @@ textarea:focus {
 
     .contenedor-contacto .contacto .contenedor-acciones button {
         width: 95.5%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
     }
 }
 
@@ -873,6 +906,14 @@ textarea:focus {
     .fondo-modal {
         width: 100vw;
         height: 100vh;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
     }
 }
 
@@ -1016,6 +1057,14 @@ textarea:focus {
         cursor: pointer;
     }
 
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
+    }
+
 
 }
 
@@ -1104,6 +1153,14 @@ textarea:focus {
         font-size: 1.5rem;
     }
 
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
+    }
+
 
 }
 
@@ -1125,11 +1182,27 @@ textarea:focus {
     .contenedor-proyecto-destacados .proyectos .card {
         max-height: 30vh;
     }
+
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1000px) {
     .contenedor-proyecto-destacados .proyectos .card {
         width: 29vw;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
     }
 }
 
@@ -1137,6 +1210,14 @@ textarea:focus {
 @media (min-width: 1440px) and (max-width: 1919px) {
     .contenedor-proyecto-destacados .proyectos .card {
         height: 47vh;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
     }
 }
 
@@ -1149,6 +1230,14 @@ textarea:focus {
         width: 90%;
 
     }
+
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
+    }
 }
 
 @media (min-width: 1700px) and (max-width: 2000px) {
@@ -1159,6 +1248,14 @@ textarea:focus {
     .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
         width: 95%;
 
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
     }
 
 }
@@ -1226,6 +1323,14 @@ textarea:focus {
         font-size: 2rem;
     }
 
+    .contenedor-contacto .contacto form .contenedor-acciones button {
+        max-width: 100%;
+    }
+
+    .contenedor-contacto .contacto form .contenedor-acciones .btn-watsapp-accion {
+        max-width: 95.5%;
+    }
+
 }
 
 @media (min-width: 2278px) and (max-width: 2400px) {
@@ -1237,7 +1342,6 @@ textarea:focus {
 @media (min-width: 2500px) and (max-width: 2800px) {
     .contenedor-proyecto-destacados .proyectos .card {
         max-height: 30rem;
-        /* height: 40rem; */
     }
 }
 
