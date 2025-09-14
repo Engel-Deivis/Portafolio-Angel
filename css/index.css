@@ -572,9 +572,9 @@ textarea:focus {
     font-size: 1.4rem;
 }
 
-/* --------------- Aplicnado estilos a los botones --------------- */
+/* --------------- Estilos compartidos para ambos botones --------------- */
 .contenedor-contacto .contacto .contenedor-acciones button,
-.btn-watsapp-accion {
+.contenedor-contacto .contacto .contenedor-acciones .btn-watsapp-accion {
     border: 1px solid white;
     background-color: #2c2e4b;
     color: var(--color-texto);
@@ -585,66 +585,29 @@ textarea:focus {
     justify-content: center;
     border-radius: 20px;
     font-family: var(--fuente-parrafos);
-    margin-top: 1.5rem;
     cursor: pointer;
-}
 
-.contenedor-contacto .contacto .contenedor-acciones button {
-    width: 90%;
+    /* 🔥 Tamaño uniforme y centrado */
+    width: 100%;
     max-width: 400px;
     margin: 1rem auto;
+    box-sizing: border-box;
 }
 
-
-/* --------------- Aplicando estilos a los iconos de los botones --------------- */
-.contenedor-contacto .contacto .contenedor-acciones button img {
-    position: absolute;
-    left: 1rem;
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
+/* --------------- Estilo específico para el botón de WhatsApp --------------- */
+.contenedor-contacto .contacto .contenedor-acciones .btn-watsapp-accion {
+    background-color: #1f974b;
+    border: none;
 }
 
+/* --------------- Iconos dentro de los botones --------------- */
+.contenedor-contacto .contacto .contenedor-acciones button img,
 .contenedor-contacto .contacto .contenedor-acciones .btn-watsapp-accion img {
     position: absolute;
     left: 1rem;
     width: 30px;
     height: 30px;
     object-fit: contain;
-}
-
-/* --------------- Aplicnado estilos al boton de WhatsApp --------------- */
-.contenedor-contacto .contacto .contenedor-acciones .btn-watsapp-accion {
-    background-color: #1f974b;
-    border: none;
-    width: 90%;
-    max-width: 400px;
-    margin: 1rem auto;
-}
-
-/* --------------- Aplicando estilos al contenedor de la X de cerrar --------------- */
-.contenedor-contacto .contenedor-btn-cerrar {
-    display: flex;
-    justify-content: end;
-    margin: .8rem;
-    margin-bottom: 1.8rem;
-}
-
-/* --------------- Aplicnado estilos a la x de Cerrar --------------- */
-.contenedor-contacto .contenedor-btn-cerrar img {
-    cursor: pointer;
-    transition: 0.3s;
-    width: 1.5rem;
-    height: 1.5rem;
-    will-change: transform;
-    filter: drop-shadow(0px 5px 25px rgba(255, 255, 255, 0.5));
-}
-
-/* --------------- Aplicando animacion a la x de Cerrar --------------- */
-.contenedor-contacto .contenedor-btn-cerrar img:active {
-    transform: scale(0.95);
-    transition: transform 0.1s;
-
 }
 
 
