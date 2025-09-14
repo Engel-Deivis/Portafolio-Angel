@@ -1261,7 +1261,7 @@ textarea:focus {
 @media (min-width: 1793px) and (max-width: 2000px) {
 
     header .contenedor-logo img {
-        width: 5vw;
+        width: 6vw;
         height: auto;
     }
 
@@ -1274,7 +1274,7 @@ textarea:focus {
     }
 
     .contenedor-hero .hero h1 {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     .contenedor-hero .hero h2 {
@@ -1286,7 +1286,7 @@ textarea:focus {
     }
 
     .contenedor-hero img {
-        width: 60vw;
+        width: 50vw;
     }
 
     .contenedor-proyecto-destacados .proyectos .card .contenido-card .accion {
