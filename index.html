@@ -1,743 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Web</title>
     <link rel="icon" href="./assets/logos/logo-portafolio.png">
-    <link rel="stylesheet" href="./css/index.css">
+    <title>Portafolio Fuera de Servicio</title>
+    <style>
+        /* --- RESET Y BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        /* --- CANVAS DE FONDO (PARTÍCULAS) --- */
+        #particle-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 100%);
+        }
+
+        /* --- MODAL HOLOGRÁFICO --- */
+        .holo-card {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 550px;
+            padding: 50px 40px;
+            background: rgba(31, 40, 51, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(102, 252, 241, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(69, 162, 158, 0.3), 0 30px 60px rgba(0,0,0,0.8);
+            text-align: center;
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+
+        .content-layer { transform: translateZ(50px); }
+
+        .icon {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            filter: drop-shadow(0 0 15px rgba(255, 77, 77, 0.8));
+            animation: pulseIcon 2s infinite;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(102, 252, 241, 0.6);
+        }
+
+        p.message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 77, 77, 0.15);
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.2);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #45a29e, #66fcf1);
+            border: none;
+            padding: 15px 40px;
+            color: #0b0c10;
+            font-weight: 800;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(102, 252, 241, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05) translateZ(10px);
+            box-shadow: 0 10px 30px rgba(102, 252, 241, 0.7);
+            background: linear-gradient(45deg, #66fcf1, #45a29e);
+        }
+
+        @keyframes pulseIcon {
+            0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 77, 77, 0.8)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 25px rgba(255, 77, 77, 1)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 77, 77, 0.8)); }
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-        <!-- --------------- Logo --------------- -->
-        <div class="contenedor-logo">
-            <img src="./assets/logos/logo-portafolio.png" alt="Logo" loading="lazy">
+
+    <audio id="bg-music" loop style="display: none;">
+        <source src="./assets/music/Billie_Eilish_-_Wildflower_Offblogmedia.com.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="holo-card" id="card">
+        <div class="content-layer">
+            <div class="icon">⛔</div>
+            <br>
+            <div class="status-badge">ESTADO: OFFLINE</div>
+            <h1>PORTAFOLIO FUERA DE SERVICIO</h1>
+            <p class="message">
+                Nuestro portafolio se encuentra actualmente <strong>fuera de servicio</strong> debido a un proceso de reestructuración técnica y actualización de proyectos.
+                <br><br>
+                Disculpe las molestias. Estamos trabajando para volver en breve.
+            </p>
+            <a href="https://wa.me/18297857041?text=Hola,%20buenos%20días.%20Estoy%20interesado%20en%20contactarte%20tras%20ver%20tu%20portafolio.%20¿Podríamos%20hablar%20sobre%20una%20posible%20colaboración%20o%20pasantía?" target="_blank" class="btn">
+                Contactar al Desarrollador
+            </a>
         </div>
-
-        <div class="enlace">
-            <a href="./curriculum.html">VISITAR CURRICULUM</a>
-        </div>
-
-    </header>
-
-    <main>
-
-        <!-- --------------- Hero --------------- -->
-        <section class="contenedor-hero">
-            <div class="hero">
-                <h1>Hola, soy Ángel David Concepción Serrano</h1>
-                <h2>Pasante de Desarrollo de Software</h2>
-                <p>Soy estudiante de Diseño y Creación de Software en INFOTEP. Actualmente estoy buscando una
-                    oportunidad de pasantía para poner en práctica lo aprendido, seguir adquiriendo experiencia y crecer
-                    en el área de desarrollo de software.</p>
-            </div>
-            <img src="./assets/logos/logo-portafolio.png" alt="Logo" loading="lazy">
-        </section>
-
-        <!-- --------------- Seccion de Sobre Mi --------------- -->
-        <section class="contenedor-sobre-mi">
-            <div class="sobre-mi">
-                <h2>Sobre Mí</h2>
-                <p>Tengo 19 años y nací en Santiago de los Caballeros, República
-                    Dominicana. Desde temprana edad he sentido curiosidad por la tecnología, pero fue durante mi
-                    formación en INFOTEP donde descubrí que el desarrollo de software no solo me interesa, sino que
-                    realmente me apasiona.</p>
-            </div>
-        </section>
-
-        <section class="contenedor-proyecto-destacados">
-            <h2>Mis proyectos Destacados</h2>
-            <div class="proyectos">
-                <!-- --------------- A.D.C.Suite --------------- -->
-                <figure class="card">
-                    <img src="./assets/imagenes/A.D.C.Suite/dashboard.png" alt="dashboard" loading="lazy">
-                    <div class="contenido-card">
-                        <figcaption>A.D.C.Suite</figcaption>
-                        <p>ADCSuite te ayuda a manejar empleados, clientes, productos y tareas desde un solo lugar. Todo
-                            de
-                            forma simple, directa y funcional.</p>
-                        <div class="accion">
-                            <button class="btn-adc" onclick="abrirProyectoAdcsuite()">Visualizar</button>
-                        </div>
-                    </div>
-                </figure>
-
-                <!-- --------------- The Burger House --------------- -->
-                <figure class="card">
-                    <img src="./assets/imagenes/The Burger House/index.jpg" alt="index" loading="lazy">
-                    <div class="contenido-card">
-                        <figcaption>The Burger House</figcaption>
-                        <p class="parrafo-burger">Una plataforma web para pedir comidas a domicilio, permitiendo a los
-                            usuarios explorar y
-                            ordenar
-                            hamburguesas y bebidas de forma rápida y sencilla.</p>
-                        <div class="accion">
-                            <button class="btn-burger" onclick="abrirProyectoBurger()">Visualizar</button>
-                        </div>
-                    </div>
-                </figure>
-
-                <!-- --------------- WarrSpa --------------- -->
-                <figure class="card">
-                    <img src="./assets/imagenes/WarrSpa/inicio.png" alt="inicio" loading="lazy">
-                    <div class="contenido-card">
-                        <figcaption>WarrSpa</figcaption>
-                        <p>Web para la gestión de servicios de spa, donde los clientes pueden agendar citas,
-                            explorar los tratamientos disponibles y encontrar la información necesaria para su
-                            bienestar.
-                        </p>
-                        <div class="accion">
-                            <button class="btn-warrspa" onclick="abrirProyectoWarrspa()">Visualizar</button>
-                        </div>
-                    </div>
-                </figure>
-
-                <!-- --------------- Roberto Flax --------------- -->
-                <figure class="card">
-                    <img src="./assets/imagenes/RobertoFlax/dashboard.png" alt="dashboard" loading="lazy">
-                    <div class="contenido-card">
-                        <figcaption>RobertoFlax</figcaption>
-                        <p>Un sistema de gestión diseñado para clientes, que facilita el control administrativo de los
-                            cobros y todas las operaciones del negocio con un panel intuitivo.</p>
-                        <div class="accion">
-                            <button class="btn-roberto" onclick="abrirProyectoRobertoFlax()">Visualizar</button>
-                        </div>
-                    </div>
-                </figure>
-
-                <!-- --------------- The Burger House Adm --------------- -->
-                <figure class="card">
-                    <img src="./assets/imagenes/The Burger House ADM/dashboard.jpg" alt="dashboard" loading="lazy">
-                    <div class="contenido-card">
-                        <figcaption>The Burger House</figcaption>
-                        <p>Panel de administración para gestionar la plataforma web, permitiendo al equipo monitorear
-                            pedidos, ver el historial de clientes y optimizar el inventario de forma eficiente.</p>
-                        <div class="accion">
-                            <button class="btn-burger-adm" onclick="abrirProyectoBurgerAdm()">Visualizar</button>
-                        </div>
-                    </div>
-                </figure>
-
-                <!-- --------------- DentalCrown --------------- -->
-                <figure class="card">
-                    <img src="./assets/imagenes/DentalCronw/index.png" alt="index" loading="lazy">
-                    <div class="contenido-card">
-                        <figcaption>DentalCrown</figcaption>
-                        <p>Un sitio web informativo para una clínica dental, que presenta de forma clara sus servicios,
-                            el
-                            equipo médico y la información de contacto para sus pacientes.</p>
-                        <div class="accion">
-                            <button class="btn-dental" onclick="abrirProyectoDentalCrown()">Visualizar</button>
-                        </div>
-                    </div>
-                </figure>
-
-                <!-- --------------- My Blog --------------- -->
-                <figure class="card">
-                    <img src="./assets/imagenes/My Blog/index.png" alt="index" loading="lazy">
-                    <div class="contenido-card">
-                        <figcaption>My Blog</figcaption>
-                        <p>Una web personal donde los usuarios pueden compartir contenido, comentar publicaciones, y
-                            personalizar su perfil, creando una comunidad en torno a temas de interés.</p>
-                        <div class="accion">
-                            <button class="btn-blog" onclick="abrirProyectoMyBlog()">Visualizar</button>
-                        </div>
-                    </div>
-                </figure>
-            </div>
-        </section>
-
-        <section class="contenedor-habilidades">
-            <h2>Habilidades Tecnicas</h2>
-            <div class="habilidades">
-
-                <!-- --------------- Python --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/python.png" alt="Python" loading="lazy">
-                    <figcaption>Python</figcaption>
-                </figure>
-
-                <!-- --------------- HTML --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/html.png" alt="Html" loading="lazy">
-                    <figcaption>HTML</figcaption>
-                </figure>
-
-                <!-- --------------- CSS --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/css.png" alt="CSS" loading="lazy">
-                    <figcaption>CSS</figcaption>
-                </figure>
-
-                <!-- --------------- TAILWINDCSS --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/TailwindCSS.png" alt="TailwindCSS" loading="lazy">
-                    <figcaption>TailwindCSS</figcaption>
-                </figure>
-
-                <!-- --------------- Django --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/Django.png" alt="Django" loading="lazy">
-                    <figcaption>Django</figcaption>
-                </figure>
-
-                <!-- --------------- GitHub --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/github.png" alt="GitHub" loading="lazy">
-                    <figcaption>GitHub</figcaption>
-                </figure>
-
-                <!-- --------------- Figma --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/figma.png" alt="Figma" loading="lazy">
-                    <figcaption>Figma</figcaption>
-                </figure>
-
-                <!-- --------------- Diseño UI & UX --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/diseño.png" alt="Diseño UI & UX" loading="lazy">
-                    <figcaption class="diseñoUiUX">Diseño UI & UX</figcaption>
-                </figure>
-
-                <!-- --------------- XAMPP --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/xampp.png" alt="xampp" loading="lazy">
-                    <figcaption>XAMPP</figcaption>
-                </figure>
-
-                <!-- --------------- JavaScript --------------- -->
-                <figure class="iconos">
-                    <img src="./assets/iconos/javascript.png" alt="javascript" loading="lazy">
-                    <figcaption>JavaScript</figcaption>
-                </figure>
-
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <h2>CONTACTO</h2>
-
-        <div class="contenedor-redes">
-            <figure class="redes">
-                <img src="./assets/iconos/gmail.png" alt="Gmail" loading="lazy">
-                <figcaption>davidserrano14545@gmail.com</figcaption>
-            </figure>
-
-            <figure class="redes">
-                <img src="./assets/iconos/telefono.png" alt="Telefono" loading="lazy">
-                <figcaption>829-785-7041</figcaption>
-            </figure>
-        </div>
-
-        <div class="contenedor-ubicacion">
-            <figure class="ubicacion">
-                <img src="./assets/iconos/ubicacion.png" alt="Ubicacion" loading="lazy">
-                <figcaption>Santiago de los caballeros, Laguna, Prieta Puñal</figcaption>
-            </figure>
-
-            <div class="acciones">
-                <button class="btn-contactame" onclick="abrirFormularioContacto()">CONTACTAME</button>
-            </div>
-        </div>
-    </footer>
-    <br>
-
-    <!-- --------------- Ventana Emergente de Contacto --------------- -->
-    <div class="fondo-modal" id="formulario-contacto">
-        <section class="contenedor-contacto">
-            <div class="contacto">
-                <div class="contenedor-btn-cerrar">
-                    <img src="./assets/iconos/cerrar.png" alt="Cerrar" loading="lazy"
-                        onclick="cerrarFormularioContacto()">
-                </div>
-
-                <form action="https://formspree.io/f/mvgbnzwe" method="POST">
-                    <h2>Formulario de contacto</h2>
-
-                    <div class="campo">
-                        <label for="nombre">Nombre o Empresa</label>
-                        <input type="text" name="name" id="nombre" required>
-                    </div>
-
-                    <div class="campo">
-                        <label for="correo">Correo Electrónico</label>
-                        <input type="email" name="email" id="correo" required>
-                    </div>
-
-                    <div class="campo">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea name="message" id="mensaje" required></textarea>
-                    </div>
-
-                    <div class="contenedor-acciones">
-                        <button type="submit" class="btn-gmail">
-                            <img src="./assets/iconos/gmail.png" alt="Gmail" loading="lazy">
-                            <div class="span">
-                                <span>Enviar</span>
-                            </div>
-                        </button>
-
-                        <a href="https://wa.me/18297857041?text=Hola,%20buenos%20días.%20Estoy%20interesado%20en%20contactarte%20tras%20ver%20tu%20portafolio.%20¿Podríamos%20hablar%20sobre%20una%20posible%20colaboración%20o%20pasantía?"
-                            target="_blank" class="btn-watsapp-accion">
-                            <img src="./assets/iconos/whatsapp.png" alt="whatsapp" loading="lazy" class="watsapp">
-                            <span>Contáctame vía WhatsApp</span>
-                        </a>
-                    </div>
-                </form>
-
-            </div>
-        </section>
     </div>
 
-    <!-- --------------- Ventana Emergente de A.D.C.Suite --------------- -->
-    <section id="adc-suite-modal" class="modal">
-        <div class="contenido">
-
-            <div class="contenedor-btn-cerrar">
-                <img src="./assets/iconos/cerrar.png" alt="Boton de cerrar" class="btn-cerrar"
-                    onclick="cerrarProyectoAdcsuite()">
-            </div>
-
-            <div class="carrusel">
-
-                <div class="contenedor-slides">
-
-                    <!-- --------------- Dashboard --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/dashboard.png" alt="Dashboard A.D.S.Suite"
-                            loading="lazy">
-                    </div>
-
-                    <!-- --------------- Empleados --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/empleados.png" alt="Empleados" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Agregar Empleados --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/addempleados.png" alt="Agregar empleados"
-                            loading="lazy">
-                    </div>
-
-                    <!-- --------------- Editar Empleados --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/ediempleado.png" alt="Editar empleado" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Eliminar Empleados --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/eliempleado.png" alt="Eliminar empleados"
-                            loading="lazy">
-                    </div>
-
-
-                    <!-- --------------- Clientes --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/clientes.png" alt="Clientes" loading="lazy">
-                    </div>
-
-
-                    <!-- --------------- Almacen --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/almacen.png" alt="Almacen" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Tareas --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/tareas.png" alt="Tareas" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Agregar Tareas --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/addtarea.png" alt="Agregar Tareas" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Eliminar Tareas --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/elitarea.png" alt="Eliminar Tareas" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Finalizar Tareas --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/A.D.C.Suite/finalizarTarea.png" alt="Finalizar Tarea"
-                            loading="lazy">
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- --------------- Ventana emergente The Burger House --------------- -->
-    <section id="the-burger-house-modal" class="modal">
-        <div class="contenido">
-
-            <div class="contenedor-btn-cerrar">
-                <img src="./assets/iconos/cerrar.png" alt="Boton de cerrar" class="btn-cerrar"
-                    onclick="cerrarProyectoBurger()">
-            </div>
-
-            <div class="carrusel">
-                <div class="contenedor-slides">
-
-                    <!-- --------------- Index --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/index.jpg" alt="index" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Login --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/login.jpg" alt="Login" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Registrate --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/registrate.jpg" alt="registrate" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Menu --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/menu.jpg" alt="menu" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Menu 2 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/menu2.jpg" alt="menu 2" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Menu 3 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/menu3.jpg" alt="menu 3" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Menu 4 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/menu4.jpg" alt="menu 4" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Perfil --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/perfil.jpg" alt="perfil" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Editar Perfil --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House/editarPerfil.jpg" alt="Editar perfil"
-                            loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- --------------- Ventana Emergente WarrSpa --------------- -->
-    <section id="warr-spa-modal" class="modal">
-
-        <div class="contenido">
-
-            <div class="contenedor-btn-cerrar">
-                <img src="./assets/iconos/cerrar.png" alt="Boton de cerrar" class="btn-cerrar"
-                    onclick="cerrarProyectoWarrspa()">
-            </div>
-
-            <div class="carrusel">
-
-                <div class="contenedor-slides">
-
-                    <!-- --------------- Inicio --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/inicio.png" alt="inicio" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Inicio 2 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/inicio2.png" alt="Inicio 2" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Inicio 3 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/inicio3.png" alt="Inicio 3" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Servicios --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/servicios.png" alt="servicios" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Nosotros --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/nosotros1.png" alt="nosotros 1" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Nosotros 2 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/nosotros2.png" alt="nosotros 2" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Contacto --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/contacto1.png" alt="Contacto 1" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Contacto 2 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/contacto2.png" alt="contacto 2" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Login --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/login.png" alt="Login" loading="lazy">
-                    </div>
-
-                    <div class="slide">
-                        <img src="./assets/imagenes/WarrSpa/register.png" alt="Registrate" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- --------------- Ventana Emergente RobertoFlax --------------- -->
-    <section id="roberto-flax-modal" class="modal">
-
-        <div class="contenido">
-
-            <div class="contenedor-btn-cerrar">
-                <img src="./assets/iconos/cerrar.png" alt="Boton de cerrar" class="btn-cerrar"
-                    onclick="cerrarProyectoRobertoFlax()">
-            </div>
-
-            <div class="carrusel">
-                <div class="contenedor-slides">
-
-                    <!-- --------------- Dashboard --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/RobertoFlax/dashboard.png" alt="Dashboard RobertoFlax"
-                            loading="lazy">
-                    </div>
-
-                    <!-- --------------- Clientes --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/RobertoFlax/clientes.png" alt="Clientes" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Agregar Clientes --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/RobertoFlax/nuevoCliente.png" alt="Agregar Clientes" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Detalle Clientes --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/RobertoFlax/detallCliente.png" alt="Detalle Clientes"
-                            loading="lazy">
-                    </div>
-
-                    <!-- --------------- Clientes Con Pagos Pendientes --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/RobertoFlax/pagosPendientes.png" alt="Clientes Con Pagos Pendientes"
-                            loading="lazy">
-                    </div>
-
-                    <!-- --------------- Clientes con Pagos Atrasados --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/RobertoFlax/pagosAtrasados.png" alt="Clientes Con Pagos Atrasados"
-                            loading="lazy">
-                    </div>
-
-                    <!-- --------------- Clientes Inactivos --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/RobertoFlax/clientesInactivos.png" alt="Clientes Inactivos"
-                            loading="lazy">
-                    </div>
-
-                    <!-- --------------- Login --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/RobertoFlax/login.png" alt="Login" loading="lazy">
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <!-- --------------- Ventana Emergente The Burger House ADM --------------- -->
-    <section id="the-burger-house-adm-modal" class="modal">
-
-        <div class="contenido">
-            <div class="contenedor-btn-cerrar">
-                <img src="./assets/iconos/cerrar.png" alt="Boton de cerrar" class="btn-cerrar"
-                    onclick="cerrarProyectoBurgerAdm()">
-            </div>
-
-            <div class="carrusel">
-                <div class="contenedor-slides">
-
-                    <!-- --------------- Dashboard --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House ADM/dashboard.jpg" alt="Dashboard" loading="lazy">
-                    </div>
-
-
-                    <!-- --------------- Pedidos --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House ADM/pedidos.jpg" alt="Pedidos" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Historial de Pedidos --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House ADM/historialPedidos.jpg" alt="Inventario"
-                            loading="lazy">
-                    </div>
-
-
-                    <!-- --------------- Clientes --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House ADM/clientes.jpg" alt="Clientes" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Perfil del cliente --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House ADM/verCliente.jpg" alt="Ver Cliente"
-                            loading="lazy">
-                    </div>
-
-                    <!-- --------------- Ventas --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House ADM/ventas.jpg" alt="Ventas" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Ventas semanales --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/The Burger House ADM/ventaSemanales.jpg" alt="Ventas Semanales"
-                            loading="lazy">
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- --------------- Ventana Emergente DentalCrown --------------- -->
-    <section id="dental-crown-modal" class="modal">
-        <div class="contenido">
-
-            <div class="contenedor-btn-cerrar">
-                <img src="./assets/iconos/cerrar.png" alt="Boton de cerrar" class="btn-cerrar"
-                    onclick="cerrarProyectoDentalCrown()">
-            </div>
-
-            <div class="carrusel">
-                <div class="contenedor-slides">
-                    <!-- --------------- Index --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/index.png" alt="Index" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Index 2 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/index2.png" alt="Index 2" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Index 3 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/index3.png" alt="Index 3" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Nosotros 1 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/nosotros1.png" alt="Nosotros 1" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Nosotros 2 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/nosotros2.png" alt="Nosotros 2" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Nosotros 3 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/nosotros3.png" alt="Nosotros 3" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Nosotros 4 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/nosotros4.png" alt="Nosotros 4" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Servicios --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/servicios.png" alt="Servicios" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Servicios 2 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/DentalCronw/servicios2.png" alt="Servicios 2" loading="lazy">
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- --------------- Ventana Emergente My Blog --------------- -->
-    <section id="my-blog-modal" class="modal">
-        <div class="contenido">
-
-            <div class="contenedor-btn-cerrar">
-                <img src="./assets/iconos/cerrar.png" alt="Boton de cerrar" class="btn-cerrar"
-                    onclick="cerrarProyectoMyBlog()">
-            </div>
-
-            <div class="carrusel">
-                <div class="contenedor-slides">
-                    <!-- --------------- Index --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/My Blog/index.png" alt="Index" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Comentario --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/My Blog/comentario.png" alt="Comentario" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Comentario 2 --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/My Blog/comentario2.png" alt="Comentario 2" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Perfil --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/My Blog/perfil.png" alt="Perfil" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Editar Perfil --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/My Blog/editarPerfil.png" alt="Editar Perfil" loading="lazy">
-                    </div>
-
-                    <!-- --------------- Login --------------- -->
-                    <div class="slide">
-                        <img src="./assets/imagenes/My Blog/login.png" alt="Login" loading="lazy">
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <script src="./js/index.js"></script>
-
+    <script>
+        /* * =========================================
+         * PARTE 0: LÓGICA DE AUDIO (HACKER MODE)
+         * =========================================
+         */
+        const audio = document.getElementById('bg-music');
+        
+        // Función para iniciar audio al máximo volumen
+        function playAudio() {
+            audio.volume = 1.0; // Volumen al 100%
+            audio.play().then(() => {
+                // Si entra aquí, sonó correctamente
+                console.log("Música sonando a todo volumen 🔊");
+                // Removemos los listeners para no sobrecargar
+                document.removeEventListener('click', playAudio);
+                document.removeEventListener('mousemove', playAudio);
+                document.removeEventListener('touchstart', playAudio);
+            }).catch(error => {
+                // Si entra aquí, el navegador lo bloqueó.
+                // No hacemos nada, los listeners de abajo lo activarán en cuanto el usuario toque algo.
+                console.log("Esperando interacción del usuario...");
+            });
+        }
+
+        // 1. Intentar sonar apenas cargue la página
+        window.addEventListener('load', playAudio);
+
+        // 2. Si falla, sonar apenas muevan el mouse o toquen la pantalla (Plan B)
+        document.addEventListener('click', playAudio);
+        document.addEventListener('mousemove', playAudio);
+        document.addEventListener('touchstart', playAudio);
+
+
+        /* * =========================================
+         * PARTE 1: EFECTO DE PARTÍCULAS (CANVAS)
+         * =========================================
+         */
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            initParticles();
+        }
+        window.addEventListener('resize', resize);
+
+        class Particle {
+            constructor(x, y, size, color) {
+                this.x = x; this.y = y; this.size = size; this.color = color;
+                this.baseX = x; this.baseY = y;
+                this.density = (Math.random() * 30) + 1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) { let dx = this.x - this.baseX; this.x -= dx/10; }
+                    if (this.y !== this.baseY) { let dy = this.y - this.baseY; this.y -= dy/10; }
+                }
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            let numberOfParticles = (width * height) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 3) + 1;
+                let x = (Math.random() * ((width - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((height - size * 2) - (size * 2)) + size * 2);
+                let color = '#66fcf1';
+                particles.push(new Particle(x, y, size, color));
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0,0, width, height);
+            for (let i = 0; i < particles.length; i++) { particles[i].update(); }
+            connectParticles();
+        }
+
+        function connectParticles() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) + 
+                                   ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                    if (distance < (canvas.width/7) * (canvas.height/7)) {
+                        opacityValue = 1 - (distance/20000);
+                        ctx.strokeStyle = 'rgba(102, 252, 241,' + opacityValue + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        resize();
+        animate();
+
+        /* PARTE 2: EFECTO 3D TILT */
+        const card = document.getElementById('card');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.pageX) / 25;
+            const y = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+        document.addEventListener('mouseleave', () => {
+            card.style.transition = "transform 0.5s ease";
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+        document.addEventListener('mouseenter', () => { card.style.transition = "none"; });
+
+    </script>
 </body>
-
 </html>
